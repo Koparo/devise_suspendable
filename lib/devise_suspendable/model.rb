@@ -42,7 +42,11 @@ module Devise
       def active?
         super && !suspended?
       end
-      
+
+      def active_for_authentication?
+        super && !suspended?
+      end
+
       # Overwrites invalid_message from Devise::Models::Authenticatable to define
       # the correct reason for blocking the sign in.
       def inactive_message
